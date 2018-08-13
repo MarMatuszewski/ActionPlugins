@@ -9,7 +9,7 @@ namespace ActionPlugins.Plugins
     {
         public string Execute( string input )
         {
-            return "Output: " + input.Length.ToString();
+            return "Input length: " + input.Length.ToString();
         }
 
         public string Description => "This plugin will count all characters in provided input";

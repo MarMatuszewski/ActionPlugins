@@ -1,8 +1,10 @@
-﻿using CorePlugin;
+﻿using ActionPlugins.Interactions;
+using CorePlugin;
 using Ninject;
 using Ninject.Extensions.Conventions;
 using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace ActionPlugins
@@ -17,6 +19,10 @@ namespace ActionPlugins
 
             bindAllCorePlugins();
             bindAdditionalPlugins();
+            bindRemainingClasses();
+
+            var interactions = _kernel.Get<IInteractions>();
+            interactions.Start();
         }
 
         private static void bindAllCorePlugins()
@@ -45,6 +51,26 @@ namespace ActionPlugins
                 .InheritedFrom<IPlugin>()
                 .BindDefaultInterfaces()
                 .Configure( y => y.InTransientScope() ) );
+        }
+
+        private static void bindRemainingClasses()
+        {
+            _kernel.Bind( x => x.FromThisAssembly()
+            .SelectAllClasses()
+            .Where( classTypeHasNotAlreadyBeenBound )
+            .BindAllInterfaces()
+            .Configure( y => y.InSingletonScope() ) );
+        }
+
+        private static bool classTypeHasNotAlreadyBeenBound( Type classType )
+        {
+            var classTypesInterfaces = classType.GetInterfaces();
+            return !classTypesInterfaces.All( interfaceTypeHasBinding );
+        }
+
+        private static bool interfaceTypeHasBinding( Type interfaceType )
+        {
+            return _kernel != null && _kernel.GetBindings( interfaceType ).Any();
         }
     }
 }

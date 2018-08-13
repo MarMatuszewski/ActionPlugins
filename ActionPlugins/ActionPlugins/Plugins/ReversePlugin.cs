@@ -12,7 +12,7 @@ namespace ActionPlugins.Plugins
             var arrayToReverse = input.ToCharArray();
             Array.Reverse( arrayToReverse );
 
-            return "Output: " + new string( arrayToReverse );
+            return "Reversed input: " + new string( arrayToReverse );
         }
 
         public string Description => "This plugin will reverse provided input";
