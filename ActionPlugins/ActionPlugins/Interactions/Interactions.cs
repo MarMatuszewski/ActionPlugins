@@ -1,9 +1,7 @@
 ﻿using ActionPlugins.Services;
 using CorePlugin;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ActionPlugins.Interactions
 {

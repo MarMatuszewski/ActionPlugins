@@ -1,7 +1,5 @@
 ﻿using CorePlugin;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ActionPlugins.Plugins
 {

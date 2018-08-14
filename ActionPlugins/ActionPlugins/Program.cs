@@ -46,20 +46,20 @@ namespace ActionPlugins
             }
 
             _kernel.Bind( x => x
-                .FromAssembliesInPath( additionalPluginsPath )
-                .SelectAllClasses()
-                .InheritedFrom<IPlugin>()
-                .BindDefaultInterfaces()
-                .Configure( y => y.InTransientScope() ) );
+                            .FromAssembliesInPath( additionalPluginsPath )
+                            .SelectAllClasses()
+                            .InheritedFrom<IPlugin>()
+                            .BindDefaultInterfaces()
+                            .Configure( y => y.InTransientScope() ) );
         }
 
         private static void bindRemainingClasses()
         {
             _kernel.Bind( x => x.FromThisAssembly()
-            .SelectAllClasses()
-            .Where( classTypeHasNotAlreadyBeenBound )
-            .BindAllInterfaces()
-            .Configure( y => y.InSingletonScope() ) );
+                            .SelectAllClasses()
+                            .Where( classTypeHasNotAlreadyBeenBound )
+                            .BindAllInterfaces()
+                            .Configure( y => y.InSingletonScope() ) );
         }
 
         private static bool classTypeHasNotAlreadyBeenBound( Type classType )

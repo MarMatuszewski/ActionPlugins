@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActionPlugins", "ActionPlugins\ActionPlugins.csproj", "{A31F9CEF-0C3A-4E79-9644-52088041E2A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActionPlugins", "ActionPlugins\ActionPlugins.csproj", "{A31F9CEF-0C3A-4E79-9644-52088041E2A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorePlugin", "CorePlugin\CorePlugin.csproj", "{46AAE6AC-7F42-4425-851E-069F46F913FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorePlugin", "CorePlugin\CorePlugin.csproj", "{46AAE6AC-7F42-4425-851E-069F46F913FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActionPlugins.Tests", "ActionPlugins.Tests\ActionPlugins.Tests.csproj", "{45F41E2D-6507-47D8-A828-C78EE10260D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{46AAE6AC-7F42-4425-851E-069F46F913FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46AAE6AC-7F42-4425-851E-069F46F913FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46AAE6AC-7F42-4425-851E-069F46F913FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45F41E2D-6507-47D8-A828-C78EE10260D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45F41E2D-6507-47D8-A828-C78EE10260D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45F41E2D-6507-47D8-A828-C78EE10260D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45F41E2D-6507-47D8-A828-C78EE10260D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
