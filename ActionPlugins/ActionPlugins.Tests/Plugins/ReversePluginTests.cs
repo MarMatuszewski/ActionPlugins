@@ -21,7 +21,6 @@ namespace ActionPlugins.Tests.Plugins
         [TestCase( "1234567", "7654321" )]
         [TestCase( "tattarrattat", "tattarrattat" )]
         [TestCase( "9D8ee", "ee8D9" )]
-
         public void Should_Return_String_With_Reversed_Provided_Input( string input, string expectedReversedInput )
         {
             var result = SUT.Execute( input );
@@ -32,7 +31,6 @@ namespace ActionPlugins.Tests.Plugins
         }
 
         [Test]
-
         public void Desricption_Property_Should_Display_Proper_Information()
         {
             var expectedDescription = "This plugin will reverse provided input";

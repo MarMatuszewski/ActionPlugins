@@ -1,4 +1,4 @@
-﻿using ActionPlugins.Interactions;
+﻿using ActionPlugins.CLI;
 using CorePlugin;
 using Ninject;
 using Ninject.Extensions.Conventions;

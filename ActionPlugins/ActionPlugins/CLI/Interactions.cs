@@ -3,14 +3,15 @@ using CorePlugin;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ActionPlugins.Interactions
+namespace ActionPlugins.CLI
 {
     public class Interactions : IInteractions
     {
         private readonly IEnumerable<IPlugin> _plugins;
         private readonly IConsoleService _consoleService;
 
-        public Interactions( IEnumerable<IPlugin> plugins,
+        public Interactions( 
+            IEnumerable<IPlugin> plugins,
             IConsoleService consoleService )
         {
             _plugins = plugins;
@@ -72,7 +73,8 @@ namespace ActionPlugins.Interactions
                 }
                 else
                 {
-                    _consoleService.WriteLine( "Sorry, but there us not such command - please select from \"desc\", \"exe\" or \"exit\"" );
+                    _consoleService.WriteLine(
+                        "Sorry, but there us not such command - please select from \"desc\", \"exe\" or \"exit\"" );
                 }
             }
         }

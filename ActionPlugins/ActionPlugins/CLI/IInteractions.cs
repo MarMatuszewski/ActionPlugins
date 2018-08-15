@@ -1,5 +1,5 @@
 ﻿
-namespace ActionPlugins.Interactions
+namespace ActionPlugins.CLI
 {
     public interface IInteractions
     {

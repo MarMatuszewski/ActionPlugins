@@ -20,7 +20,6 @@ namespace ActionPlugins.Tests.Plugins
         [TestCase( "1234567", 7 )]
         [TestCase( "asdacrgrt", 9 )]
         [TestCase( "9d8", 3 )]
-
         public void Should_Return_String_With_Expected_Number_Of_Characters_In_Provided_Input( string input, int expectedNumber )
         {
             var result = SUT.Execute( input );
@@ -31,7 +30,6 @@ namespace ActionPlugins.Tests.Plugins
         }
 
         [Test]
-
         public void Desricption_Property_Should_Display_Proper_Information()
         {
             var expectedDescription = "This plugin will count all characters in provided input";
