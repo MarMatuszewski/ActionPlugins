@@ -10,7 +10,9 @@ namespace ActionPlugins.Tests.Plugins
     public class CountPluginTests
     {
         private CountPlugin SUT;
-        public CountPluginTests()
+
+        [SetUp]
+        public void SetUp()
         {
             SUT = new CountPlugin();
         }

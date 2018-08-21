@@ -19,7 +19,8 @@ namespace ActionPlugins.Tests.CLI
         private IPlugin _mockPluginTwo;
         private IConsoleService _mockConsoleService;
 
-        public InteractionsTests()
+        [SetUp]
+        public void SetUp()
         {
             _mockPluginOne = Substitute.For<IPlugin>();
             _mockPluginTwo = Substitute.For<IPlugin>();

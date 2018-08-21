@@ -11,7 +11,8 @@ namespace ActionPlugins.Tests.Plugins
     {
         private ReversePlugin SUT;
 
-        public ReversePluginTests()
+        [SetUp]
+        public void SetUp()
         {
             SUT = new ReversePlugin();
         }

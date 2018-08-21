@@ -11,7 +11,8 @@ namespace ActionPlugins.Tests.Plugins
     {
         private SumPlugin SUT;
 
-        public SumPluginTests()
+        [SetUp]
+        public void SetUp()
         {
             SUT = new SumPlugin();
         }
