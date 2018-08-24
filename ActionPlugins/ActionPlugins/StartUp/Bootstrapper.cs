@@ -1,27 +1,28 @@
-﻿using CorePlugin;
+﻿using ActionPlugins.Services;
+using CorePlugin;
 using Ninject;
 using Ninject.Extensions.Conventions;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
+
 
 namespace ActionPlugins.StartUp
 {
     public class Bootstrapper
     {
         private IKernel _kernel;
-
+        private IDirectoryService _directoryService;
+        private IPathService _pathService;
+        private IAssemblyService _assemblyService;
 
         public IKernel Start()
         {
             _kernel = new StandardKernel();
 
             bindAllCorePlugins();
-            bindAdditionalPlugins();
-            bindRemainingClasses();
+            bindServices();
+           // bindAdditionalPlugins();
+
 
             return _kernel;
         }
@@ -38,12 +39,16 @@ namespace ActionPlugins.StartUp
 
         private void bindAdditionalPlugins()
         {
-            var executableLocation = Assembly.GetEntryAssembly().Location;
-            var additionalPluginsPath = Path.Combine( Path.GetDirectoryName( executableLocation ), "Plugins" );
+            _assemblyService = _kernel.Get<IAssemblyService>();
+            _directoryService = _kernel.Get<IDirectoryService>();
+            _pathService = _kernel.Get<IPathService>();
 
-            if( !Directory.Exists( additionalPluginsPath ) )
+            var executableLocation = _assemblyService.GetEntryAssembly().Location;
+            var additionalPluginsPath = _pathService.Combine( _pathService.GetDirectoryName( executableLocation ), "Plugins" );
+
+            if( !_directoryService.Exists( additionalPluginsPath ) )
             {
-                Directory.CreateDirectory( additionalPluginsPath );
+                _directoryService.CreateDirectory( additionalPluginsPath );
             }
 
             _kernel.Bind( x => x
@@ -54,7 +59,7 @@ namespace ActionPlugins.StartUp
                             .Configure( y => y.InTransientScope() ) );
         }
 
-        private void bindRemainingClasses()
+        private void bindServices()
         {
             _kernel.Bind( x => x.FromThisAssembly()
                             .SelectAllClasses()
